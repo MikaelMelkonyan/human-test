@@ -46,12 +46,7 @@ private extension SubmissionsListView {
             } else {
                 listStack
                 
-                if let message = store.message {
-                    Text(message, bundle: .module)
-                        .foregroundColor(Color(.message))
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 40)
-                }
+                message
             }
         }
         .refreshable {
@@ -70,6 +65,16 @@ private extension SubmissionsListView {
             }
         }
         .padding(.horizontal, 20)
+    }
+    
+    @ViewBuilder
+    var message: some View {
+        if let message = store.message {
+            Text(message, bundle: .module)
+                .foregroundColor(Color(.message))
+                .padding(.horizontal, 20)
+                .padding(.vertical, 40)
+        }
     }
 }
 
