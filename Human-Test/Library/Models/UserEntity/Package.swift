@@ -4,19 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "User",
+    name: "UserEntity",
     platforms: [
         .iOS(.v17)
     ],
     products: [
         .library(
-            name: "User",
-            targets: ["User"]
+            name: "UserEntity",
+            targets: ["UserEntity"]
         )
     ],
     targets: [
         .target(
-            name: "User"
+            name: "UserEntity"
         )
     ]
 )
