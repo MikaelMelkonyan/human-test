@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 import TimerModule
-import Submissions
+import SubmissionsModule
 
 struct RootView: View {
     let store: StoreOf<RootFeature>

@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6658224F2D0CB33D003C933E /* Submissions in Frameworks */ = {isa = PBXBuildFile; productRef = 6658224E2D0CB33D003C933E /* Submissions */; };
-		66600D3A2D0C025F005EB3A0 /* Timer in Frameworks */ = {isa = PBXBuildFile; productRef = 66600D392D0C025F005EB3A0 /* Timer */; };
 		66600D432D0C02C4005EB3A0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 66600D422D0C02C4005EB3A0 /* ComposableArchitecture */; };
 		66C408082D0CD7E7001FE2BF /* APIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 66C408072D0CD7E7001FE2BF /* APIClient */; };
 		66C408222D0CE389001FE2BF /* TimerModule in Frameworks */ = {isa = PBXBuildFile; productRef = 66C408212D0CE389001FE2BF /* TimerModule */; };
+		66C408362D0CE706001FE2BF /* SubmissionsModule in Frameworks */ = {isa = PBXBuildFile; productRef = 66C408352D0CE706001FE2BF /* SubmissionsModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +30,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66C408362D0CE706001FE2BF /* SubmissionsModule in Frameworks */,
 				66600D432D0C02C4005EB3A0 /* ComposableArchitecture in Frameworks */,
-				66600D3A2D0C025F005EB3A0 /* Timer in Frameworks */,
 				66C408222D0CE389001FE2BF /* TimerModule in Frameworks */,
 				66C408082D0CD7E7001FE2BF /* APIClient in Frameworks */,
-				6658224F2D0CB33D003C933E /* Submissions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,11 +76,10 @@
 			);
 			name = "Human-Test";
 			packageProductDependencies = (
-				66600D392D0C025F005EB3A0 /* Timer */,
 				66600D422D0C02C4005EB3A0 /* ComposableArchitecture */,
-				6658224E2D0CB33D003C933E /* Submissions */,
 				66C408072D0CD7E7001FE2BF /* APIClient */,
 				66C408212D0CE389001FE2BF /* TimerModule */,
+				66C408352D0CE706001FE2BF /* SubmissionsModule */,
 			);
 			productName = "Human-Test";
 			productReference = 66600D1F2D0BC9B2005EB3A0 /* Human-Test.app */;
@@ -116,6 +113,7 @@
 				66600D412D0C02C4005EB3A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				66C408062D0CD7E7001FE2BF /* XCLocalSwiftPackageReference "Library/Dependencies/APIClient" */,
 				66C408202D0CE389001FE2BF /* XCLocalSwiftPackageReference "Library/UI/TimerModule" */,
+				66C408342D0CE706001FE2BF /* XCLocalSwiftPackageReference "Library/UI/SubmissionsModule" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 66600D202D0BC9B2005EB3A0 /* Products */;
@@ -355,6 +353,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Library/UI/TimerModule;
 		};
+		66C408342D0CE706001FE2BF /* XCLocalSwiftPackageReference "Library/UI/SubmissionsModule" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Library/UI/SubmissionsModule;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -369,14 +371,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6658224E2D0CB33D003C933E /* Submissions */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Submissions;
-		};
-		66600D392D0C025F005EB3A0 /* Timer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Timer;
-		};
 		66600D422D0C02C4005EB3A0 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 66600D412D0C02C4005EB3A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
@@ -389,6 +383,10 @@
 		66C408212D0CE389001FE2BF /* TimerModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TimerModule;
+		};
+		66C408352D0CE706001FE2BF /* SubmissionsModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SubmissionsModule;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
