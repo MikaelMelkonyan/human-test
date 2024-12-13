@@ -9,7 +9,7 @@ import ComposableArchitecture
 import SwiftUI
 
 import TimerModule
-import Submissions
+import SubmissionsModule
 
 @Reducer
 struct RootFeature {
