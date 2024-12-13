@@ -8,9 +8,13 @@
 import ComposableArchitecture
 import SwiftUI
 
+import UsersAPIClient
+
 @Reducer
 public struct SubmissionsListFeature: Sendable {
     public init() {}
+    
+    @Dependency(\.usersAPIClient) var apiClient: UsersAPIClient
     
     public var body: some ReducerOf<Self> {
         Reduce { state, action in
