@@ -20,7 +20,7 @@ public struct TimerFeature: Sendable {
             case .onTask:
                 return .run { send in
                     for await _ in self.clock.timer(interval: .seconds(1)) {
-                        await send(.timerTick)
+                        await send(.timerTick, animation: .easeInOut)
                     }
                 }
                 .cancellable(id: TimerId.current)

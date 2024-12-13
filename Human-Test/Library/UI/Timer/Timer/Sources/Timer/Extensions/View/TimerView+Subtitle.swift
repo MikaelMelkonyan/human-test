@@ -19,7 +19,7 @@ extension TimerView {
 #Preview(traits: .sizeThatFitsLayout) {
     TimerView(
         store: Store(initialState: TimerFeature.State(
-            duration: .seconds(60)
+            duration: .seconds(10)
         )) {
             TimerFeature()
         }
