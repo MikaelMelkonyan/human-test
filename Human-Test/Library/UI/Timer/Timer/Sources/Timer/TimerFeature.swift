@@ -26,11 +26,12 @@ public struct TimerFeature: Sendable {
                 .cancellable(id: TimerId.current)
             case .timerTick:
                 state.secondsElapsed += 1
-                if state.secondsElapsed == state.duration.components.seconds {
-                    return .cancel(id: TimerId.current)
-                } else {
+                guard state.secondsElapsed == state.duration.components.seconds else {
                     return .none
                 }
+                return .send(.didCloseSubmission, animation: .easeInOut)
+            case .didCloseSubmission:
+                return .cancel(id: TimerId.current)
             }
         }
     }
@@ -49,8 +50,6 @@ extension TimerFeature {
             self.duration = duration
         }
         
-        let subtitle: LocalizedStringKey = "Subtitle"
-        
         var secondsElapsed = 0
         var durationRemaining: Duration {
             duration - .seconds(secondsElapsed)
@@ -65,6 +64,7 @@ extension TimerFeature {
     public enum Action: Equatable {
         case onTask
         case timerTick
+        
+        case didCloseSubmission
     }
 }
-
