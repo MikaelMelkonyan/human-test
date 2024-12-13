@@ -50,7 +50,6 @@ private extension UserInfoView {
     }
 }
 
-#if DEBUG
 #Preview(traits: .sizeThatFitsLayout) {
     UserInfoView(
         store: Store(initialState: .mock) {
@@ -58,4 +57,3 @@ private extension UserInfoView {
         }
     )
 }
-#endif

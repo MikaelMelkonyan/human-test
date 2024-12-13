@@ -34,7 +34,6 @@ private extension SubmissionView {
     }
 }
 
-#if DEBUG
 #Preview(traits: .sizeThatFitsLayout) {
     SubmissionView(
         store: Store(initialState: SubmissionFeature.State(
@@ -44,4 +43,3 @@ private extension SubmissionView {
         }
     )
 }
-#endif

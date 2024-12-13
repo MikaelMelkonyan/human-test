@@ -36,7 +36,6 @@ extension UserInfoFeature {
     }
 }
 
-#if DEBUG
 // MARK: - Mock
 extension UserInfoFeature.State {
     static var mock: Self {
@@ -47,4 +46,3 @@ extension UserInfoFeature.State {
         )
     }
 }
-#endif
