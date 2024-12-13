@@ -47,6 +47,7 @@ private extension SubmissionsListView {
                 listStack
             }
         }
+        .scrollDisabled(store.isLoading)
     }
     
     var listStack: some View {

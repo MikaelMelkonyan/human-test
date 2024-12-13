@@ -10,13 +10,11 @@ import ComposableArchitecture
 
 @main
 struct Human_TestApp: App {
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    
     var body: some Scene {
         WindowGroup {
-            RootView(
-                store: Store(initialState: RootFeature.State()) {
-                    RootFeature()
-                }
-            )
+            EmptyView()
         }
     }
 }

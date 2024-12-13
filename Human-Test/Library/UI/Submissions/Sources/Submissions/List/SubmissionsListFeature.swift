@@ -20,6 +20,28 @@ public struct SubmissionsListFeature: Sendable {
         Reduce { state, action in
             switch action {
             case .onTask:
+                return .run { send in
+                    do {
+                        let users = try await apiClient.users()
+                        if users.isEmpty {
+                        } else {
+                            let submissions: [SubmissionFeature.State] = users.map { user in
+                                return SubmissionFeature.State(
+                                    userInfo: UserInfoFeature.State(
+                                        fullName: user.name,
+                                        username: user.username
+                                    )
+                                )
+                            }
+                            await send(.didGetSubmissions(submissions), animation: .easeInOut)
+                        }
+                    } catch {
+                    }
+                }
+            case let .didGetSubmissions(submissions):
+                state.isLoading = false
+                state.items = IdentifiedArray(uniqueElements: submissions)
+                return .none
             default:
                 return .none
             }
@@ -41,7 +63,6 @@ extension SubmissionsListFeature {
         var isLoading: Bool
         var items: IdentifiedArrayOf<SubmissionFeature.State> = [
             .mock, .mock, .mock, .mock, .mock,
-            .mock, .mock, .mock, .mock, .mock,
             .mock, .mock, .mock, .mock, .mock
         ]
     }
@@ -53,6 +74,9 @@ extension SubmissionsListFeature {
     @dynamicMemberLookup
     public enum Action: Equatable {
         case onTask
+        
+        case didGetSubmissions([SubmissionFeature.State])
+        
         case items(IdentifiedActionOf<SubmissionFeature>)
     }
 }
