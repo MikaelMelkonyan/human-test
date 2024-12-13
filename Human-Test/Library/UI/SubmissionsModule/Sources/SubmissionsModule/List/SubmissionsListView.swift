@@ -21,7 +21,7 @@ public struct SubmissionsListView: View {
             
             scrollView
         }
-        .task { await store.send(.onTask).finish() }
+        .task { await store.send(.onTask) }
     }
 }
 
@@ -55,7 +55,7 @@ private extension SubmissionsListView {
             }
         }
         .refreshable {
-            await store.send(.refresh).finish()
+            await store.send(.refresh)
         }
         .scrollDisabled(store.isLoading)
     }
