@@ -16,6 +16,27 @@ public struct SubmissionsListView: View {
     }
     
     public var body: some View {
+        VStack(spacing: 0) {
+            title
+            
+            ScrollView {
+            }
+        }
+    }
+}
+
+// MARK: - Private
+private extension SubmissionsListView {
+    var title: some View {
+        HStack(spacing: 0) {
+            Text("Submissions", bundle: .module)
+                .font(.title.weight(.medium))
+            
+            Spacer()
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 10)
+    }
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
