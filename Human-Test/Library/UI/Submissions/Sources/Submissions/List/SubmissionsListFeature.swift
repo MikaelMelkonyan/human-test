@@ -13,6 +13,15 @@ public struct SubmissionsListFeature: Sendable {
     public init() {}
     
     public var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            default:
+                return .none
+            }
+        }
+        .forEach(\.items, action: \.items) {
+            SubmissionFeature()
+        }
     }
 }
 
@@ -21,6 +30,13 @@ extension SubmissionsListFeature {
     @ObservableState
     public struct State: Equatable {
         public init() {}
+        
+        var isLoading: Bool = false
+        var items: IdentifiedArrayOf<SubmissionFeature.State> = [
+            .mock, .mock, .mock, .mock, .mock,
+            .mock, .mock, .mock, .mock, .mock,
+            .mock, .mock, .mock, .mock, .mock
+        ]
     }
 }
 
@@ -29,5 +45,6 @@ extension SubmissionsListFeature {
     @CasePathable
     @dynamicMemberLookup
     public enum Action: Equatable {
+        case items(IdentifiedActionOf<SubmissionFeature>)
     }
 }

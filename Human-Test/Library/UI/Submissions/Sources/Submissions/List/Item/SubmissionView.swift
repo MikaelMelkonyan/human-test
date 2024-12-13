@@ -16,13 +16,6 @@ public struct SubmissionView: View {
     }
     
     public var body: some View {
-        content
-    }
-}
-
-// MARK: - Private
-private extension SubmissionView {
-    var content: some View {
         HStack(spacing: 10) {
             UserInfoView(store: store.scope(
                 state: \.userInfo,

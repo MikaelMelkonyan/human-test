@@ -22,12 +22,24 @@ public struct SubmissionFeature: Sendable {
 // MARK: - State
 extension SubmissionFeature {
     @ObservableState
-    public struct State: Equatable {
+    public struct State: Equatable, Identifiable {
+        public let id: Id = Id()
         public init(userInfo: UserInfoFeature.State) {
             self.userInfo = userInfo
         }
         
         public var userInfo: UserInfoFeature.State
+    }
+    
+    public struct Id: Hashable, Sendable {
+        let value: UUID = UUID()
+    }
+}
+
+// MARK: - Mock
+extension SubmissionFeature.State {
+    static var mock: Self {
+        return .init(userInfo: .mock)
     }
 }
 

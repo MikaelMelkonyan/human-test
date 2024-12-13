@@ -20,6 +20,15 @@ public struct SubmissionsListView: View {
             title
             
             ScrollView {
+                LazyVStack(spacing: 20) {
+                    ForEach(Array(store.scope(
+                        state: \.items,
+                        action: \.items
+                    )), id: \.state.id) { store in
+                        SubmissionView(store: store)
+                    }
+                }
+                .padding(.horizontal, 20)
             }
         }
     }
