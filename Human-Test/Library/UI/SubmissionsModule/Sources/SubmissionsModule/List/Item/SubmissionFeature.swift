@@ -36,7 +36,16 @@ extension SubmissionFeature {
     }
 }
 
-// MARK: - Mock
+// MARK: - Mocks
+extension IdentifiedArrayOf where Element == SubmissionFeature.State {
+    static var mock: Self {
+        return [
+            .mock, .mock, .mock, .mock, .mock,
+            .mock, .mock, .mock, .mock, .mock
+        ]
+    }
+}
+
 extension SubmissionFeature.State {
     static var mock: Self {
         return .init(userInfo: .mock)

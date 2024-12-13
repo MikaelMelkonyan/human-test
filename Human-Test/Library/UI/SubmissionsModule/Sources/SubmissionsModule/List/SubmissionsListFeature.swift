@@ -61,10 +61,7 @@ extension SubmissionsListFeature {
         }
         
         var isLoading: Bool
-        var items: IdentifiedArrayOf<SubmissionFeature.State> = [
-            .mock, .mock, .mock, .mock, .mock,
-            .mock, .mock, .mock, .mock, .mock
-        ]
+        var items: IdentifiedArrayOf<SubmissionFeature.State> = .mock
     }
 }
 
