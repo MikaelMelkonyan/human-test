@@ -29,7 +29,7 @@ public struct TimerFeature: Sendable {
                 guard state.secondsElapsed == state.duration.components.seconds else {
                     return .none
                 }
-                return .send(.didCloseSubmission)
+                return .send(.didCloseSubmission, animation: .easeInOut)
             case .didCloseSubmission:
                 return .cancel(id: TimerId.current)
             }

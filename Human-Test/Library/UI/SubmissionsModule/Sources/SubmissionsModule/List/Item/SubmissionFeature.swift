@@ -38,7 +38,7 @@ extension SubmissionFeature {
 
 // MARK: - Mocks
 extension IdentifiedArrayOf where Element == SubmissionFeature.State {
-    static var mock: Self {
+    static var mock: IdentifiedArrayOf<SubmissionFeature.State> {
         return [
             .mock, .mock, .mock, .mock, .mock,
             .mock, .mock, .mock, .mock, .mock
