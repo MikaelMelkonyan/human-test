@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct Human_TestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(
+                store: Store(initialState: RootFeature.State()) {
+                    RootFeature()
+                }
+            )
         }
     }
 }
