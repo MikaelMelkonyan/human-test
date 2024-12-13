@@ -45,6 +45,13 @@ private extension SubmissionsListView {
                     .redacted(reason: .placeholder)
             } else {
                 listStack
+                
+                if let message = store.message {
+                    Text(message, bundle: .module)
+                        .foregroundColor(Color(.message))
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 40)
+                }
             }
         }
         .refreshable {

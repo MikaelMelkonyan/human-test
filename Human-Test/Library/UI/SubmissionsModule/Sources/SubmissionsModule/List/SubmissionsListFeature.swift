@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import SwiftUI
 
+import APIClient
 import UsersAPIClient
 
 @Reducer
@@ -24,10 +25,17 @@ public struct SubmissionsListFeature: Sendable {
             case .refresh:
                 state.isLoading = true
                 state.items = .mock
+                state.message = nil
                 return loadSubmissionsEffect()
+            case let .didGetMessage(key):
+                state.isLoading = false
+                state.items = []
+                state.message = key
+                return .none
             case let .didGetSubmissions(submissions):
                 state.isLoading = false
                 state.items = IdentifiedArray(uniqueElements: submissions)
+                state.message = nil
                 return .none
             default:
                 return .none
@@ -43,6 +51,7 @@ public struct SubmissionsListFeature: Sendable {
             do {
                 let users = try await apiClient.users()
                 if users.isEmpty {
+                    await send(.didGetMessage("No users found"), animation: .easeInOut)
                 } else {
                     let submissions: [SubmissionFeature.State] = users.map { user in
                         return SubmissionFeature.State(
@@ -52,9 +61,11 @@ public struct SubmissionsListFeature: Sendable {
                             )
                         )
                     }
-                    await send(.didGetSubmissions(submissions))
+                    await send(.didGetSubmissions(submissions), animation: .easeInOut)
                 }
             } catch {
+                let message: String = (error as? APIError)?.description ?? error.localizedDescription
+                await send(.didGetMessage(.init(stringLiteral: message)), animation: .easeInOut)
             }
         }
     }
@@ -70,6 +81,7 @@ extension SubmissionsListFeature {
         
         var isLoading: Bool
         var items: IdentifiedArrayOf<SubmissionFeature.State> = .mock
+        var message: LocalizedStringKey?
     }
 }
 
@@ -82,6 +94,7 @@ extension SubmissionsListFeature {
         case refresh
         
         case didGetSubmissions([SubmissionFeature.State])
+        case didGetMessage(LocalizedStringKey)
         
         case items(IdentifiedActionOf<SubmissionFeature>)
     }
