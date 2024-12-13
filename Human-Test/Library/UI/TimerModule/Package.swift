@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "Timer",
+    name: "TimerModule",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v17)
     ],
     products: [
         .library(
-            name: "Timer",
-            targets: ["Timer"]
+            name: "TimerModule",
+            targets: ["TimerModule"]
         )
     ],
     dependencies: [
@@ -20,7 +20,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Timer",
+            name: "TimerModule",
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
             ],
