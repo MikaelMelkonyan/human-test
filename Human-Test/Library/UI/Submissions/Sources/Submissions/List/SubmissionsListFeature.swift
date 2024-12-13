@@ -15,6 +15,7 @@ public struct SubmissionsListFeature: Sendable {
     public var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
+            case .onTask:
             default:
                 return .none
             }
@@ -47,6 +48,7 @@ extension SubmissionsListFeature {
     @CasePathable
     @dynamicMemberLookup
     public enum Action: Equatable {
+        case onTask
         case items(IdentifiedActionOf<SubmissionFeature>)
     }
 }

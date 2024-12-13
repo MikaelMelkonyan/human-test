@@ -21,6 +21,7 @@ public struct SubmissionsListView: View {
             
             scrollView
         }
+        .task { await store.send(.onTask).finish() }
     }
 }
 
