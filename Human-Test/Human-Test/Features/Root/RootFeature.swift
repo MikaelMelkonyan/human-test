@@ -12,7 +12,7 @@ import Timer
 import Submissions
 
 @Reducer
-struct RootFeature: Sendable {
+struct RootFeature {
     var body: some ReducerOf<Self> {
         Scope(state: \.timer, action: \.timer) {
             TimerFeature()
