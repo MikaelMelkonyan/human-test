@@ -39,7 +39,7 @@ private extension UserInfoView {
     
     var fullName: some View {
         Text(store.fullName)
-            .font(.system(.headline))
+            .font(.headline)
             .foregroundStyle(Color(.fullName))
     }
     
