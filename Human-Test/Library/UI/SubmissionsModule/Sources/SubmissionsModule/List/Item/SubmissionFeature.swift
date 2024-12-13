@@ -16,6 +16,9 @@ public struct SubmissionFeature: Sendable {
         Scope(state: \.userInfo, action: \.userInfo) {
             UserInfoFeature()
         }
+        Scope(state: \.marketCap, action: \.marketCap) {
+            MarketCapFeature()
+        }
     }
 }
 
@@ -29,6 +32,7 @@ extension SubmissionFeature {
         }
         
         public var userInfo: UserInfoFeature.State
+        public var marketCap: MarketCapFeature.State = .mock
     }
     
     public struct Id: Hashable, Sendable {
@@ -58,5 +62,6 @@ extension SubmissionFeature {
     @dynamicMemberLookup
     public enum Action: Equatable {
         case userInfo(Never)
+        case marketCap(MarketCapFeature.Action)
     }
 }

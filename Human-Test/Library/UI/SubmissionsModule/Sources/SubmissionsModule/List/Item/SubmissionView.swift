@@ -23,6 +23,11 @@ public struct SubmissionView: View {
             ))
             
             Spacer()
+            
+            MarketCapView(store: store.scope(
+                state: \.marketCap,
+                action: \.marketCap
+            ))
         }
     }
 }
