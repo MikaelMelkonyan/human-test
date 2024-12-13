@@ -32,8 +32,8 @@ private extension MarketCapView {
     var chart: some View {
         Chart(store.capByDates) { capitalization in
             AreaMark(
-                x: .value("", capitalization.date),
-                y: .value("", capitalization.value)
+                x: .value(.init(stringLiteral: ""), capitalization.date),
+                y: .value(.init(stringLiteral: ""), capitalization.value)
             )
             .foregroundStyle(Gradient(colors: [
                 Color(.chartGradientStart),
@@ -42,14 +42,15 @@ private extension MarketCapView {
             .interpolationMethod(.catmullRom)
             
             LineMark(
-                x: .value("", capitalization.date),
-                y: .value("", capitalization.value)
+                x: .value(.init(stringLiteral: ""), capitalization.date),
+                y: .value(.init(stringLiteral: ""), capitalization.value)
             )
             .foregroundStyle(Color(.chartBorder))
             .interpolationMethod(.catmullRom)
         }
         .chartXAxis(.hidden)
         .chartYAxis(.hidden)
+        .frame(width: 100, height: 50)
     }
 }
 
