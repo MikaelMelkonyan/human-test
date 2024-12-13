@@ -54,14 +54,25 @@ extension MarketCapFeature.State {
             currencyCode: "USD",
             value: 2440.5,
             capByDates: [
-                .init(date: Date().addingTimeInterval(-6), value: 2400),
-                .init(date: Date().addingTimeInterval(-5), value: 2000),
-                .init(date: Date().addingTimeInterval(-4), value: 1800),
-                .init(date: Date().addingTimeInterval(-3), value: 2000.0),
-                .init(date: Date().addingTimeInterval(-2), value: 2040.5),
-                .init(date: Date().addingTimeInterval(-1), value: 2440.5),
-                .init(date: Date(), value: 1440.5)
+                .init(date: Date().addingTimeInterval(-9), value: mockCapitalization),
+                .init(date: Date().addingTimeInterval(-8), value: mockCapitalization),
+                .init(date: Date().addingTimeInterval(-7), value: mockCapitalization),
+                .init(date: Date().addingTimeInterval(-6), value: mockCapitalization),
+                .init(date: Date().addingTimeInterval(-5), value: mockCapitalization),
+                .init(date: Date().addingTimeInterval(-4), value: mockCapitalization),
+                .init(date: Date().addingTimeInterval(-3), value: mockCapitalization),
+                .init(date: Date().addingTimeInterval(-2), value: mockCapitalization),
+                .init(date: Date().addingTimeInterval(-1), value: mockCapitalization),
+                .init(date: Date(), value: mockCapitalization)
             ]
         )
+    }
+    
+    private static let mockRange: [Double] = [
+        300, 1000, 2200, 2400, 2000, 1800, 2000.0, 2040.5, 2440.5, 1440.5
+    ]
+    
+    private static var mockCapitalization: Double {
+        mockRange.randomElement() ?? mockRange.first ?? 0
     }
 }
