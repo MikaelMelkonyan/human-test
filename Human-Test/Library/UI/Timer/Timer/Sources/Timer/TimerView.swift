@@ -32,7 +32,7 @@ public struct TimerView: View {
 #Preview(traits: .sizeThatFitsLayout) {
     TimerView(
         store: Store(initialState: TimerFeature.State(
-            duration: .seconds(60)
+            duration: .seconds(6 * 60 * 60)
         )) {
             TimerFeature()
         }

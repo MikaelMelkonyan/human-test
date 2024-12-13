@@ -35,7 +35,7 @@ public struct TimerFeature: Sendable {
         }
     }
     
-    enum TimerId {
+    private enum TimerId {
         case current
     }
 }
@@ -49,7 +49,6 @@ extension TimerFeature {
             self.duration = duration
         }
         
-        let title: LocalizedStringKey = "Title"
         let subtitle: LocalizedStringKey = "Subtitle"
         
         var secondsElapsed = 0
