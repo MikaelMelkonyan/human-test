@@ -1,12 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Submission closed" : {
+    "Submission closed!" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Submission closed"
+            "value" : "Submission closed!"
           }
         }
       }

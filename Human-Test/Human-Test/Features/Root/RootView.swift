@@ -15,7 +15,13 @@ struct RootView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            TimerView(store: store.scope(state: \.timer, action: \.timer))
+            TimerView(store: store.scope(
+                state: \.timer, action: \.timer
+            ))
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
+            
+            Spacer()
         }
     }
 }

@@ -19,7 +19,7 @@ extension TimerView {
 private extension TimerView {
     var text: Text {
         if store.durationRemaining.components.seconds == 0 {
-            Text("Submission closed", bundle: .module)
+            Text("Submission closed!", bundle: .module)
         } else {
             Text(store.durationRemaining.formatted())
         }
