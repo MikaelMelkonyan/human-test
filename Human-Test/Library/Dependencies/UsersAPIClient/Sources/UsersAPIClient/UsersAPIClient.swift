@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 
 import APIClient
-import User
+import UserEntity
 
 public final actor UsersAPIClient {
     @Dependency(\.apiClient) private var apiClient: APIClient

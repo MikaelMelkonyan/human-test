@@ -16,7 +16,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../APIClient"),
-        .package(path: "../../Models/User"),
+        .package(path: "../../Models/UserEntity"),
         .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: .init(1, 0, 0))
     ],
     targets: [
@@ -24,7 +24,7 @@ let package = Package(
             name: "UsersAPIClient",
             dependencies: [
                 "APIClient",
-                "User",
+                "UserEntity",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
             ]
         )
