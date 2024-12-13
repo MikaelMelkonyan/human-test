@@ -22,13 +22,10 @@ extension UserInfoFeature {
         public let username: String
         
         public init(
-            firstName: String,
-            lastName: String,
+            fullName: String,
             username: String
         ) {
-            fullName = [firstName, lastName].filter({
-                !$0.isEmpty
-            }).joined(separator: " ")
+            self.fullName = fullName
             self.username = username
         }
         
@@ -40,8 +37,7 @@ extension UserInfoFeature {
 extension UserInfoFeature.State {
     static var mock: Self {
         return .init(
-            firstName: "John",
-            lastName: "Doe",
+            fullName: "John Doe",
             username: "john.doe"
         )
     }
