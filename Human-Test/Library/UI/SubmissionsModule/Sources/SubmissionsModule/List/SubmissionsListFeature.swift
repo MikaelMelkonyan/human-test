@@ -20,24 +20,11 @@ public struct SubmissionsListFeature: Sendable {
         Reduce { state, action in
             switch action {
             case .onTask:
-                return .run { send in
-                    do {
-                        let users = try await apiClient.users()
-                        if users.isEmpty {
-                        } else {
-                            let submissions: [SubmissionFeature.State] = users.map { user in
-                                return SubmissionFeature.State(
-                                    userInfo: UserInfoFeature.State(
-                                        fullName: user.name,
-                                        username: user.username
-                                    )
-                                )
-                            }
-                            await send(.didGetSubmissions(submissions))
-                        }
-                    } catch {
-                    }
-                }
+                return loadSubmissionsEffect()
+            case .refresh:
+                state.isLoading = true
+                state.items = .mock
+                return loadSubmissionsEffect()
             case let .didGetSubmissions(submissions):
                 state.isLoading = false
                 state.items = IdentifiedArray(uniqueElements: submissions)
@@ -48,6 +35,27 @@ public struct SubmissionsListFeature: Sendable {
         }
         .forEach(\.items, action: \.items) {
             SubmissionFeature()
+        }
+    }
+    
+    private func loadSubmissionsEffect() -> Effect<SubmissionsListFeature.Action> {
+        return .run { send in
+            do {
+                let users = try await apiClient.users()
+                if users.isEmpty {
+                } else {
+                    let submissions: [SubmissionFeature.State] = users.map { user in
+                        return SubmissionFeature.State(
+                            userInfo: UserInfoFeature.State(
+                                fullName: user.name,
+                                username: user.username
+                            )
+                        )
+                    }
+                    await send(.didGetSubmissions(submissions))
+                }
+            } catch {
+            }
         }
     }
 }
@@ -71,6 +79,7 @@ extension SubmissionsListFeature {
     @dynamicMemberLookup
     public enum Action: Equatable {
         case onTask
+        case refresh
         
         case didGetSubmissions([SubmissionFeature.State])
         

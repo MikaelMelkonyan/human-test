@@ -47,6 +47,9 @@ private extension SubmissionsListView {
                 listStack
             }
         }
+        .refreshable {
+            await store.send(.refresh).finish()
+        }
         .scrollDisabled(store.isLoading)
     }
     
