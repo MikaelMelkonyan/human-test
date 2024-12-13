@@ -19,17 +19,7 @@ public struct SubmissionsListView: View {
         VStack(spacing: 0) {
             title
             
-            ScrollView {
-                LazyVStack(spacing: 20) {
-                    ForEach(Array(store.scope(
-                        state: \.items,
-                        action: \.items
-                    )), id: \.state.id) { store in
-                        SubmissionView(store: store)
-                    }
-                }
-                .padding(.horizontal, 20)
-            }
+            scrollView
         }
     }
 }
@@ -46,11 +36,36 @@ private extension SubmissionsListView {
         .padding(.horizontal, 20)
         .padding(.vertical, 10)
     }
+    
+    var scrollView: some View {
+        ScrollView {
+            if store.isLoading {
+                listStack
+                    .redacted(reason: .placeholder)
+            } else {
+                listStack
+            }
+        }
+    }
+    
+    var listStack: some View {
+        LazyVStack(spacing: 20) {
+            ForEach(Array(store.scope(
+                state: \.items,
+                action: \.items
+            )), id: \.state.id) { store in
+                SubmissionView(store: store)
+            }
+        }
+        .padding(.horizontal, 20)
+    }
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
     SubmissionsListView(
-        store: Store(initialState: SubmissionsListFeature.State()) {
+        store: Store(initialState: SubmissionsListFeature.State(
+            isLoading: true
+        )) {
             SubmissionsListFeature()
         }
     )

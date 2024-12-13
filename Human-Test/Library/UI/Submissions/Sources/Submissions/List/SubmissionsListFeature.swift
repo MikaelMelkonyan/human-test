@@ -29,9 +29,11 @@ public struct SubmissionsListFeature: Sendable {
 extension SubmissionsListFeature {
     @ObservableState
     public struct State: Equatable {
-        public init() {}
+        public init(isLoading: Bool = true) {
+            self.isLoading = isLoading
+        }
         
-        var isLoading: Bool = false
+        var isLoading: Bool
         var items: IdentifiedArrayOf<SubmissionFeature.State> = [
             .mock, .mock, .mock, .mock, .mock,
             .mock, .mock, .mock, .mock, .mock,
