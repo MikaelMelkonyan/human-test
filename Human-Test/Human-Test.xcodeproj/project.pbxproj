@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6658224F2D0CB33D003C933E /* Submissions in Frameworks */ = {isa = PBXBuildFile; productRef = 6658224E2D0CB33D003C933E /* Submissions */; };
 		66600D3A2D0C025F005EB3A0 /* Timer in Frameworks */ = {isa = PBXBuildFile; productRef = 66600D392D0C025F005EB3A0 /* Timer */; };
 		66600D432D0C02C4005EB3A0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 66600D422D0C02C4005EB3A0 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 			files = (
 				66600D432D0C02C4005EB3A0 /* ComposableArchitecture in Frameworks */,
 				66600D3A2D0C025F005EB3A0 /* Timer in Frameworks */,
+				6658224F2D0CB33D003C933E /* Submissions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +76,7 @@
 			packageProductDependencies = (
 				66600D392D0C025F005EB3A0 /* Timer */,
 				66600D422D0C02C4005EB3A0 /* ComposableArchitecture */,
+				6658224E2D0CB33D003C933E /* Submissions */,
 			);
 			productName = "Human-Test";
 			productReference = 66600D1F2D0BC9B2005EB3A0 /* Human-Test.app */;
@@ -106,6 +109,7 @@
 			packageReferences = (
 				66600D382D0C025F005EB3A0 /* XCLocalSwiftPackageReference "Library/UI/Timer" */,
 				66600D412D0C02C4005EB3A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				6658224D2D0CB33D003C933E /* XCLocalSwiftPackageReference "Library/UI/Submissions" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 66600D202D0BC9B2005EB3A0 /* Products */;
@@ -337,6 +341,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		6658224D2D0CB33D003C933E /* XCLocalSwiftPackageReference "Library/UI/Submissions" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Library/UI/Submissions;
+		};
 		66600D382D0C025F005EB3A0 /* XCLocalSwiftPackageReference "Library/UI/Timer" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Library/UI/Timer;
@@ -355,6 +363,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6658224E2D0CB33D003C933E /* Submissions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Submissions;
+		};
 		66600D392D0C025F005EB3A0 /* Timer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Timer;

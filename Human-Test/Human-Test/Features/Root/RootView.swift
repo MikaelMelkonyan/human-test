@@ -9,6 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 import Timer
+import Submissions
 
 struct RootView: View {
     let store: StoreOf<RootFeature>
@@ -19,10 +20,12 @@ struct RootView: View {
                 state: \.timer, action: \.timer
             ))
             .padding(.horizontal, 20)
-            .padding(.top, 20)
             
-            Spacer()
+            SubmissionsView(store: store.scope(
+                state: \.submissions, action: \.submissions
+            ))
         }
+        .padding(.top, 20)
     }
 }
 

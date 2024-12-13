@@ -22,6 +22,7 @@ public struct SubmissionsView: View {
                     state: \.list,
                     action: \.list
                 ))
+                .disabled(true)
                 .blur(radius: 10)
                 
                 LockIconView()

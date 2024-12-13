@@ -9,12 +9,26 @@ import ComposableArchitecture
 import SwiftUI
 
 import Timer
+import Submissions
 
 @Reducer
 struct RootFeature: Sendable {
     var body: some ReducerOf<Self> {
         Scope(state: \.timer, action: \.timer) {
             TimerFeature()
+        }
+        Scope(state: \.submissions, action: \.submissions) {
+            SubmissionsFeature()
+        }
+        
+        Reduce { state, action in
+            switch action {
+            case .timer(.didCloseSubmission):
+                state.submissions.isLocked = true
+                return .none
+            default:
+                return .none
+            }
         }
     }
 }
@@ -23,7 +37,8 @@ struct RootFeature: Sendable {
 extension RootFeature {
     @ObservableState
     struct State: Equatable {
-        var timer: TimerFeature.State = .init(duration: .seconds(6 * 60 * 60))
+        var timer: TimerFeature.State = TimerFeature.State(duration: .seconds(6 * 60 * 60))
+        var submissions: SubmissionsFeature.State = SubmissionsFeature.State()
     }
 }
 
@@ -33,5 +48,6 @@ extension RootFeature {
     @dynamicMemberLookup
     public enum Action: Equatable {
         case timer(TimerFeature.Action)
+        case submissions(SubmissionsFeature.Action)
     }
 }
