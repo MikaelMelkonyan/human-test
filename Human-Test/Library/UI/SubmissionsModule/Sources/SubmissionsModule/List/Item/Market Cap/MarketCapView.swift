@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import Charts
 
 public struct MarketCapView: View {
     public let store: StoreOf<MarketCapFeature>
@@ -20,7 +21,35 @@ public struct MarketCapView: View {
             Text(store.value.formatted(
                 .currency(code: store.currencyCode)
             ))
+            
+            chart
         }
+    }
+}
+
+// MARK: - Private
+private extension MarketCapView {
+    var chart: some View {
+        Chart(store.capByDates) { capitalization in
+            AreaMark(
+                x: .value("", capitalization.date),
+                y: .value("", capitalization.value)
+            )
+            .foregroundStyle(Gradient(colors: [
+                Color(.chartGradientStart),
+                Color(.chartGradientEnd)
+            ]))
+            .interpolationMethod(.catmullRom)
+            
+            LineMark(
+                x: .value("", capitalization.date),
+                y: .value("", capitalization.value)
+            )
+            .foregroundStyle(Color(.chartBorder))
+            .interpolationMethod(.catmullRom)
+        }
+        .chartXAxis(.hidden)
+        .chartYAxis(.hidden)
     }
 }
 

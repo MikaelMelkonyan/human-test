@@ -62,6 +62,6 @@ extension SubmissionFeature {
     @dynamicMemberLookup
     public enum Action: Equatable {
         case userInfo(Never)
-        case marketCap(MarketCapFeature.Action)
+        case marketCap(Never)
     }
 }
