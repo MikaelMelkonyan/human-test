@@ -8,7 +8,7 @@
 import ComposableArchitecture
 import SwiftUI
 
-import Timer
+import TimerModule
 import Submissions
 
 @Reducer

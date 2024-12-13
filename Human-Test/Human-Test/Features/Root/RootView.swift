@@ -8,7 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-import Timer
+import TimerModule
 import Submissions
 
 struct RootView: View {

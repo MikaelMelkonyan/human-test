@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "Submissions",
+    name: "SubmissionsModule",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v17)
     ],
     products: [
         .library(
-            name: "Submissions",
-            targets: ["Submissions"]
+            name: "SubmissionsModule",
+            targets: ["SubmissionsModule"]
         )
     ],
     dependencies: [
@@ -21,7 +21,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Submissions",
+            name: "SubmissionsModule",
             dependencies: [
                 "UsersAPIClient",
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
