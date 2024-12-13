@@ -81,7 +81,7 @@ private extension SubmissionsListView {
 #Preview(traits: .sizeThatFitsLayout) {
     SubmissionsListView(
         store: Store(initialState: SubmissionsListFeature.State(
-            isLoading: true
+            isLoading: false
         )) {
             SubmissionsListFeature()
         }

@@ -20,13 +20,23 @@ public struct MarketCapFeature {
 extension MarketCapFeature {
     @ObservableState
     public struct State: Equatable {
+        let currencyCode: String
+        let value: Double
+        
+        public init(currencyCode: String, value: Double) {
+            self.currencyCode = currencyCode
+            self.value = value
+        }
     }
 }
 
 // MARK: - Mock
 extension MarketCapFeature.State {
     static var mock: Self {
-        return .init()
+        return .init(
+            currencyCode: "USD",
+            value: 2440.5
+        )
     }
 }
 

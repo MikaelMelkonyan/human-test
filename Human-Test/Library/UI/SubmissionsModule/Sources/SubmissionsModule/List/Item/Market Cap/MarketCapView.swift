@@ -16,6 +16,11 @@ public struct MarketCapView: View {
     }
     
     public var body: some View {
+        VStack(spacing: 8) {
+            Text(store.value.formatted(
+                .currency(code: store.currencyCode)
+            ))
+        }
     }
 }
 
