@@ -33,7 +33,7 @@ public struct SubmissionsListFeature: Sendable {
                                     )
                                 )
                             }
-                            await send(.didGetSubmissions(submissions), animation: .easeInOut)
+                            await send(.didGetSubmissions(submissions))
                         }
                     } catch {
                     }
