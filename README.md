@@ -9,6 +9,8 @@
 
 ## Task Description
 Create an application implementing a user list with the following requirements:
+![image](https://github.com/user-attachments/assets/e45cb635-3e17-43d3-985c-bebb78d67709)
+
 
 ### Architecture
 - Implement unidirectional data flow architecture pattern
