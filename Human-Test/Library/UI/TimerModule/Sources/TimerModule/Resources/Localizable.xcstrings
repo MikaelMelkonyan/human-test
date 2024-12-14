@@ -1,0 +1,56 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Submission closed!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submission closed!"
+          }
+        }
+      }
+    },
+    "Submissions close in a few hours" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submissions close in a few hours"
+          }
+        }
+      }
+    },
+    "Submissions close in a few minutes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submissions close in a few minutes"
+          }
+        }
+      }
+    },
+    "Submissions close in a few seconds" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Submissions close in a few seconds"
+          }
+        }
+      }
+    },
+    "You will be notified soon" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will be notified soon"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
