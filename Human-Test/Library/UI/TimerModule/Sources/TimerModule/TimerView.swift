@@ -25,7 +25,7 @@ public struct TimerView: View {
         .padding(10)
         .background(Color(.background))
         .clipShape(RoundedRectangle(cornerRadius: 24))
-        .task { await store.send(.onTask) }
+        .task { store.send(.onTask) }
     }
 }
 
